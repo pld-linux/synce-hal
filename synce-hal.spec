@@ -10,9 +10,12 @@ Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
 URL:		http://www.synce.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
+BuildRequires:	gnet-devel
 BuildRequires:	libmimedir-vlm-devel
 BuildRequires:	libtool
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
+BuildRequires:	synce-libsynce-devel >= 0.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
