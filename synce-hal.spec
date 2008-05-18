@@ -44,6 +44,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%service -q haldaemon restart
+
 %files
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS COPYING NEWS ChangeLog
