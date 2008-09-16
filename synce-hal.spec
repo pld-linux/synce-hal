@@ -1,12 +1,12 @@
 Summary:	Synce-hal
 Summary(pl.UTF-8):	Synce-hal
 Name:		synce-hal
-Version:	0.1
-Release:	0.1
+Version:	0.2
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
-# Source0-md5:	77ea51506ac4ef2bdb81ba7f5c609d2b
+# Source0-md5:	06c7fe3d2b9c130cd485272d6756f599
 URL:		http://www.synce.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
@@ -15,7 +15,7 @@ BuildRequires:	libmimedir-vlm-devel
 BuildRequires:	libtool
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
-BuildRequires:	synce-libsynce-devel >= 0.10.0
+BuildRequires:	synce-libsynce-devel >= 0.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
