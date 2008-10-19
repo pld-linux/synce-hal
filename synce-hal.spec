@@ -5,7 +5,7 @@ Summary:	Synce-hal
 Summary(pl.UTF-8):	Synce-hal
 Name:		synce-hal
 Version:	0.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
@@ -19,6 +19,8 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	synce-libsynce-devel >= 0.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define	haldir	%{_libdir}/hal
 
 %description
 Synce-hal is a connection framework and dccm-implementation for Windows
@@ -41,7 +43,8 @@ Mobile devices that integrates with HAL.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	haldir=%{haldir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,8 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-%attr(755,root,root) %{_libdir}/hal-synce-rndis
-%attr(755,root,root) %{_libdir}/hal-synce-serial
+%attr(755,root,root) %{haldir}/hal-synce-rndis
+%attr(755,root,root) %{haldir}/hal-synce-serial
 %attr(755,root,root) %{_libdir}/hal-dccm
 %attr(755,root,root) %{_libdir}/synce-serial-chat
 %{_datadir}/hal/fdi/policy/20thirdparty/*synce.fdi
