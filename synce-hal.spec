@@ -1,5 +1,6 @@
 # TODO:
 #	package bluetooth stuff
+#	fix Group (Applications/System?)
 #
 Summary:	Synce-hal
 Summary(pl.UTF-8):	Synce-hal
