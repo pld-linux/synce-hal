@@ -5,12 +5,12 @@
 Summary:	Synce-hal
 Summary(pl.UTF-8):	Synce-hal
 Name:		synce-hal
-Version:	0.2
-Release:	2
+Version:	0.15
+Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
-# Source0-md5:	06c7fe3d2b9c130cd485272d6756f599
+# Source0-md5:	796eca27a2ce561247e7a71375c242b6
 URL:		http://www.synce.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
@@ -36,7 +36,8 @@ Mobile devices that integrates with HAL.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--with-hal-addon-dir=%{haldir}/scripts
 
 %{__make}
 
@@ -56,8 +57,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
+%config(noreplace) %verify(not md5 mtime size) /etc/dbus-1/system.d/org.freedesktop.Hal.Device.Synce.conf
+%{_bindir}/synce-unlock.py
 %attr(755,root,root) %{haldir}/hal-synce-rndis
 %attr(755,root,root) %{haldir}/hal-synce-serial
 %attr(755,root,root) %{_libdir}/hal-dccm
 %attr(755,root,root) %{_libdir}/synce-serial-chat
 %{_datadir}/hal/fdi/policy/20thirdparty/*synce.fdi
+%dir %{_datadir}/synce-hal
+%{_datadir}/synce-hal/dhclient.conf
