@@ -9,7 +9,7 @@ Version:	0.15
 Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/synce/%{name}-%{version}.tar.gz
 # Source0-md5:	796eca27a2ce561247e7a71375c242b6
 URL:		http://www.synce.org/
 BuildRequires:	autoconf >= 2.50
@@ -21,11 +21,11 @@ BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	synce-libsynce-devel >= 0.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define	haldir	%{_libdir}/hal
+%define		haldir	%{_libdir}/hal
 
 %description
-Synce-hal is a connection framework and dccm-implementation for Windows
-Mobile devices that integrates with HAL.
+Synce-hal is a connection framework and dccm-implementation for
+Windows Mobile devices that integrates with HAL.
 
 %prep
 %setup -q
@@ -58,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/dbus-1/system.d/org.freedesktop.Hal.Device.Synce.conf
-%{_bindir}/synce-unlock.py
+%attr(755,root,root) %{_bindir}/synce-unlock.py
 %attr(755,root,root) %{haldir}/hal-synce-rndis
 %attr(755,root,root) %{haldir}/hal-synce-serial
 %attr(755,root,root) %{_libdir}/hal-dccm
