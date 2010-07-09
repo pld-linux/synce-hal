@@ -1,14 +1,12 @@
 # TODO:
 #	package bluetooth stuff
-#	fix Group (Applications/System?)
-#
 Summary:	Synce-hal
 Summary(pl.UTF-8):	Synce-hal
 Name:		synce-hal
 Version:	0.15
 Release:	1
 License:	GPL v2
-Group:		Libraries
+Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/synce/%{name}-%{version}.tar.gz
 # Source0-md5:	796eca27a2ce561247e7a71375c242b6
 URL:		http://www.synce.org/
@@ -19,6 +17,8 @@ BuildRequires:	libtool
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	synce-libsynce-devel >= 0.12
+Obsoletes: synce-odccm <= %{version}
+Obsoletes: synce-serial <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		haldir	%{_libdir}/hal
@@ -59,10 +59,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/dbus-1/system.d/org.freedesktop.Hal.Device.Synce.conf
 %attr(755,root,root) %{_bindir}/synce-unlock.py
-%attr(755,root,root) %{haldir}/hal-synce-rndis
-%attr(755,root,root) %{haldir}/hal-synce-serial
 %attr(755,root,root) %{_libdir}/hal-dccm
 %attr(755,root,root) %{_libdir}/synce-serial-chat
 %{_datadir}/hal/fdi/policy/20thirdparty/*synce.fdi
 %dir %{_datadir}/synce-hal
 %{_datadir}/synce-hal/dhclient.conf
+%attr(755,root,root) %{haldir}/hal-synce-rndis
+%attr(755,root,root) %{haldir}/hal-synce-serial
