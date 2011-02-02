@@ -13,12 +13,14 @@ URL:		http://www.synce.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
 BuildRequires:	gnet-devel
+BuildRequires:	hal-devel
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	synce-libsynce-devel >= 0.12
-Obsoletes: synce-odccm <= %{version}
-Obsoletes: synce-serial <= %{version}
+Obsoletes:	synce-odccm <= %{version}
+Obsoletes:	synce-serial <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		haldir	%{_libdir}/hal
