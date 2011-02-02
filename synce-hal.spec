@@ -4,7 +4,7 @@ Summary:	Synce-hal
 Summary(pl.UTF-8):	Synce-hal
 Name:		synce-hal
 Version:	0.15
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/synce/%{name}-%{version}.tar.gz
@@ -19,8 +19,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	synce-libsynce-devel >= 0.12
-Obsoletes:	synce-odccm <= %{version}
-Obsoletes:	synce-serial <= %{version}
+Obsoletes:	synce-odccm < %{version}-%{release}
+Obsoletes:	synce-serial < %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		haldir	%{_libdir}/hal
